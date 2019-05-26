@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing.Text;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Text;
+using System.Windows.Forms;
 
 namespace CubeTimer
 {
@@ -19,7 +13,15 @@ namespace CubeTimer
     {
         #region Fields
         
+        /// <summary>
+        /// 스톱워치 클래스 입니다.
+        /// </summary>
         private Stopwatch stopwatch = new Stopwatch();
+
+        /// <summary>
+        /// 시작 여부 입니다.
+        /// </summary>
+        private bool isStart = false;
 
         #endregion
 
@@ -38,26 +40,15 @@ namespace CubeTimer
 
             this.cubeTimer.Interval = 1;
 
-            #region 폰트를 적용합니다.
+            this.timerLabel.Left = this.timerDisplayPanel.Width / 2 - this.timerLabel.Width / 2;
+            this.timerLabel.Top  = this.timerDisplayPanel.Height / 2 - this.timerLabel.Height / 2;
 
-            PrivateFontCollection privateFont = new PrivateFontCollection();
-
-            privateFont.AddFontFile("digital-7.ttf");
-
-            Font font = new Font(privateFont.Families[0], 100f);
-
-            this.timerLabel.Font = font;
-
-            this.timerLabel.Left = (this.timerDisplayPanel.Width - this.timerLabel.Width  ) / 2;
-            this.timerLabel.Top  = (this.timerDisplayPanel.Height - this.timerLabel.Height) / 2;
-
-            #endregion
-            
-            this.cubeTimer.Tick += cubeTimer_Tick;
-            this.KeyDown += mainForm_KeyDown;
+            this.cubeTimer.Tick        += cubeTimer_Tick;
+            this.KeyDown               += mainForm_KeyDown;
+            this.deleteButton.Click    += deleteButton_Click;
+            this.deleteAllButton.Click += deleteAllButton_Click;
         }
 
-        
         #endregion
 
         #region mainForm_KeyDown(sender, e) - 키 입력시 동작합니다.
@@ -69,19 +60,25 @@ namespace CubeTimer
         /// <param name="e">이벤트 인자 입니다.</param>
         private void mainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            Console.WriteLine("test");
-            
-            if(e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter)
+            if((e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter) && isStart == false)
             {
-                stopwatch.Start();
-                this.cubeTimer.Start();
-                Console.WriteLine(e.KeyCode.ToString());
+                isStart = true;
 
+                this.cubeTimer.Start();
+                
+                this.stopwatch.Start();
             }
-            else
+            else if((e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter) && isStart == true)
             { 
-                stopwatch.Stop();
+                isStart = false;
+
                 this.cubeTimer.Stop();
+                
+                this.stopwatch.Stop();
+
+                this.stopwatch.Reset();
+
+                this.recordListBox.Items.Add(this.timerLabel.Text);
             }
         }
 
@@ -96,7 +93,34 @@ namespace CubeTimer
         /// <param name="e">이벤트 인자 입니다.</param>
         private void cubeTimer_Tick(object sender, EventArgs e)
         {
-            this.timerLabel.Text = string.Format("{0:00} : {1:00} : {2:00}", stopwatch.Elapsed.Minutes, stopwatch.Elapsed.Seconds, stopwatch.Elapsed.Milliseconds / 10);
+            this.timerLabel.Text = string.Format("{0:00}:{1:00}:{2:00}:{3:00}", stopwatch.Elapsed.Hours, stopwatch.Elapsed.Minutes, stopwatch.Elapsed.Seconds, stopwatch.Elapsed.Milliseconds);
+        }
+
+        #endregion
+
+        #region deleteButton_Click(sender, e) - 삭제 버튼 클릭시 동작합니다.
+
+        /// <summary>
+        /// 삭제 버튼 클릭시 동작합니다.
+        /// </summary>
+        /// <param name="sender">이벤트 발생자 입니다.</param>
+        /// <param name="e">이벤트 인자 입니다.</param>
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            this.recordListBox.Items.Remove(this.recordListBox.SelectedItem);
+        }
+
+        #endregion
+        #region deleteAllButton_Click(sender, e) - 삭제 버튼 클릭시 동작합니다.
+
+        /// <summary>
+        /// 전체 삭제 버튼 클릭시 동작합니다.
+        /// </summary>
+        /// <param name="sender">이벤트 발생자 입니다.</param>
+        /// <param name="e">이벤트 인자 입니다.</param>
+        private void deleteAllButton_Click(object sender, EventArgs e)
+        {
+            this.recordListBox.Items.Clear();
         }
 
         #endregion
