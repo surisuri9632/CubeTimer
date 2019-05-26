@@ -28,20 +28,178 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.rootTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.timerDisplayPanel = new System.Windows.Forms.Panel();
+            this.recordDisplayPanel = new System.Windows.Forms.Panel();
+            this.menuPanel = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.파일ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recordListBox = new System.Windows.Forms.ListBox();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.deleteAllButton = new System.Windows.Forms.Button();
+            this.cubeTimer = new System.Windows.Forms.Timer(this.components);
+            this.timerLabel = new System.Windows.Forms.Label();
+            this.rootTableLayoutPanel.SuspendLayout();
+            this.timerDisplayPanel.SuspendLayout();
+            this.recordDisplayPanel.SuspendLayout();
+            this.menuPanel.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // rootTableLayoutPanel
+            // 
+            this.rootTableLayoutPanel.ColumnCount = 1;
+            this.rootTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.rootTableLayoutPanel.Controls.Add(this.recordDisplayPanel, 0, 3);
+            this.rootTableLayoutPanel.Controls.Add(this.timerDisplayPanel, 0, 1);
+            this.rootTableLayoutPanel.Controls.Add(this.menuPanel, 0, 0);
+            this.rootTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rootTableLayoutPanel.Location = new System.Drawing.Point(5, 5);
+            this.rootTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.rootTableLayoutPanel.Name = "rootTableLayoutPanel";
+            this.rootTableLayoutPanel.RowCount = 4;
+            this.rootTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.rootTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.15385F));
+            this.rootTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
+            this.rootTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.rootTableLayoutPanel.Size = new System.Drawing.Size(774, 551);
+            this.rootTableLayoutPanel.TabIndex = 0;
+            // 
+            // timerDisplayPanel
+            // 
+            this.timerDisplayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.timerDisplayPanel.Controls.Add(this.timerLabel);
+            this.timerDisplayPanel.Location = new System.Drawing.Point(5, 45);
+            this.timerDisplayPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.timerDisplayPanel.Name = "timerDisplayPanel";
+            this.timerDisplayPanel.Size = new System.Drawing.Size(764, 252);
+            this.timerDisplayPanel.TabIndex = 1;
+            // 
+            // recordDisplayPanel
+            // 
+            this.recordDisplayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.recordDisplayPanel.Controls.Add(this.deleteAllButton);
+            this.recordDisplayPanel.Controls.Add(this.deleteButton);
+            this.recordDisplayPanel.Controls.Add(this.recordListBox);
+            this.recordDisplayPanel.Location = new System.Drawing.Point(5, 317);
+            this.recordDisplayPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.recordDisplayPanel.Name = "recordDisplayPanel";
+            this.recordDisplayPanel.Size = new System.Drawing.Size(764, 229);
+            this.recordDisplayPanel.TabIndex = 2;
+            // 
+            // menuPanel
+            // 
+            this.menuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuPanel.Controls.Add(this.menuStrip1);
+            this.menuPanel.Location = new System.Drawing.Point(5, 5);
+            this.menuPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(764, 30);
+            this.menuPanel.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.파일ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(764, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 파일ToolStripMenuItem
+            // 
+            this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
+            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.파일ToolStripMenuItem.Text = "파일";
+            // 
+            // recordListBox
+            // 
+            this.recordListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.recordListBox.FormattingEnabled = true;
+            this.recordListBox.ItemHeight = 16;
+            this.recordListBox.Location = new System.Drawing.Point(4, 4);
+            this.recordListBox.Margin = new System.Windows.Forms.Padding(5);
+            this.recordListBox.Name = "recordListBox";
+            this.recordListBox.Size = new System.Drawing.Size(300, 212);
+            this.recordListBox.TabIndex = 0;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(312, 3);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(100, 30);
+            this.deleteButton.TabIndex = 1;
+            this.deleteButton.Text = "삭제";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteAllButton
+            // 
+            this.deleteAllButton.Location = new System.Drawing.Point(312, 53);
+            this.deleteAllButton.Margin = new System.Windows.Forms.Padding(0);
+            this.deleteAllButton.Name = "deleteAllButton";
+            this.deleteAllButton.Size = new System.Drawing.Size(100, 30);
+            this.deleteAllButton.TabIndex = 2;
+            this.deleteAllButton.Text = "전체 삭제";
+            this.deleteAllButton.UseVisualStyleBackColor = true;
+            // 
+            // timerLabel
+            // 
+            this.timerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.timerLabel.AutoSize = true;
+            this.timerLabel.Location = new System.Drawing.Point(342, 117);
+            this.timerLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.timerLabel.Name = "timerLabel";
+            this.timerLabel.Size = new System.Drawing.Size(56, 16);
+            this.timerLabel.TabIndex = 0;
+            this.timerLabel.Text = "label1";
+            this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.rootTableLayoutPanel);
             this.Font = new System.Drawing.Font("나눔고딕코딩", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "MainForm";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "큐브 타이머";
+            this.rootTableLayoutPanel.ResumeLayout(false);
+            this.timerDisplayPanel.ResumeLayout(false);
+            this.timerDisplayPanel.PerformLayout();
+            this.recordDisplayPanel.ResumeLayout(false);
+            this.menuPanel.ResumeLayout(false);
+            this.menuPanel.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TableLayoutPanel rootTableLayoutPanel;
+        private System.Windows.Forms.Panel recordDisplayPanel;
+        private System.Windows.Forms.Panel timerDisplayPanel;
+        private System.Windows.Forms.Button deleteAllButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.ListBox recordListBox;
+        private System.Windows.Forms.Label timerLabel;
+        private System.Windows.Forms.Panel menuPanel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 파일ToolStripMenuItem;
+        private System.Windows.Forms.Timer cubeTimer;
     }
 }
 

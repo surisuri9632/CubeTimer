@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace CubeTimer
 {
@@ -25,6 +26,14 @@ namespace CubeTimer
         public MainForm()
         {
             InitializeComponent();
+
+            PrivateFontCollection privateFont = new PrivateFontCollection();
+
+            privateFont.AddFontFile("digital-7.ttf");
+
+            Font font = new Font(privateFont.Families[0], 50f);
+
+            timerLabel.Font = font;
         }
 
         #endregion
