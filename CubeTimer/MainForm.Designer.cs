@@ -40,6 +40,7 @@
             this.deleteAllButton = new System.Windows.Forms.Button();
             this.cubeTimer = new System.Windows.Forms.Timer(this.components);
             this.timerLabel = new System.Windows.Forms.Label();
+            this.startButton = new System.Windows.Forms.Button();
             this.rootTableLayoutPanel.SuspendLayout();
             this.timerDisplayPanel.SuspendLayout();
             this.recordDisplayPanel.SuspendLayout();
@@ -83,6 +84,7 @@
             this.recordDisplayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.recordDisplayPanel.Controls.Add(this.startButton);
             this.recordDisplayPanel.Controls.Add(this.deleteAllButton);
             this.recordDisplayPanel.Controls.Add(this.deleteButton);
             this.recordDisplayPanel.Controls.Add(this.recordListBox);
@@ -154,17 +156,25 @@
             // 
             // timerLabel
             // 
-            this.timerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.timerLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.timerLabel.AutoSize = true;
-            this.timerLabel.Location = new System.Drawing.Point(342, 117);
+            this.timerLabel.Location = new System.Drawing.Point(309, 105);
             this.timerLabel.Margin = new System.Windows.Forms.Padding(0);
             this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(56, 16);
+            this.timerLabel.Size = new System.Drawing.Size(104, 16);
             this.timerLabel.TabIndex = 0;
-            this.timerLabel.Text = "label1";
+            this.timerLabel.Text = "00 : 00 : 00";
             this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(312, 111);
+            this.startButton.Margin = new System.Windows.Forms.Padding(0);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(100, 30);
+            this.startButton.TabIndex = 3;
+            this.startButton.Text = "시작";
+            this.startButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -200,6 +210,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 파일ToolStripMenuItem;
         private System.Windows.Forms.Timer cubeTimer;
+        private System.Windows.Forms.Button startButton;
     }
 }
 
