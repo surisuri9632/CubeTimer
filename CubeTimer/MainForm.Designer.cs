@@ -74,10 +74,10 @@
             this.recordDisplayPanel.Controls.Add(this.deleteAllButton);
             this.recordDisplayPanel.Controls.Add(this.deleteButton);
             this.recordDisplayPanel.Controls.Add(this.recordListBox);
-            this.recordDisplayPanel.Location = new System.Drawing.Point(5, 315);
+            this.recordDisplayPanel.Location = new System.Drawing.Point(5, 313);
             this.recordDisplayPanel.Margin = new System.Windows.Forms.Padding(5);
             this.recordDisplayPanel.Name = "recordDisplayPanel";
-            this.recordDisplayPanel.Size = new System.Drawing.Size(764, 231);
+            this.recordDisplayPanel.Size = new System.Drawing.Size(764, 233);
             this.recordDisplayPanel.TabIndex = 2;
             // 
             // deleteAllButton
@@ -121,7 +121,7 @@
             this.timerDisplayPanel.Location = new System.Drawing.Point(5, 45);
             this.timerDisplayPanel.Margin = new System.Windows.Forms.Padding(5);
             this.timerDisplayPanel.Name = "timerDisplayPanel";
-            this.timerDisplayPanel.Size = new System.Drawing.Size(764, 250);
+            this.timerDisplayPanel.Size = new System.Drawing.Size(764, 248);
             this.timerDisplayPanel.TabIndex = 1;
             // 
             // timerLabel
