@@ -30,6 +30,8 @@ namespace CubeTimer
         {
             using(SQLiteCommand command = new SQLiteCommand(connection))
             {
+                #region SQL 쿼리를 실행합니다.
+
                 command.CommandText = @"
 INSERT INTO TimeRecord
 (
@@ -40,6 +42,9 @@ VALUES
     @TIME
 )
 ";
+
+                #endregion
+
                 command.Parameters.Add(new SQLiteParameter(@"TIME", DbType.String) { Value = source.Time });
 
                 command.ExecuteNonQuery();
@@ -82,7 +87,11 @@ VALUES
 
                 using(SQLiteCommand command = new SQLiteCommand(connection))
                 {
+                    #region SQL 쿼리를 실행합니다.
+
                     command.CommandText = "DELETE FROM TimeRecord WHERE TIME = @TIME";
+
+                    #endregion
 
                     command.Parameters.Add(new SQLiteParameter(@"TIME", DbType.String) { Value = time });
 
@@ -106,7 +115,11 @@ VALUES
 
                 using(SQLiteCommand command = new SQLiteCommand(connection))
                 {
+                    #region SQL 쿼리를 실행합니다.
+
                     command.CommandText = "DELETE FROM TimeRecord";
+
+                    #endregion
 
                     command.ExecuteNonQuery();
                 }
@@ -130,7 +143,11 @@ VALUES
 
                 using(SQLiteCommand command = new SQLiteCommand(connection))
                 {
+                    #region SQL 쿼리를 실행합니다.
+
                     command.CommandText = "SELECT TIME FROM TimeRecord WHERE TIME = @TIME";
+
+                    #endregion
 
                     command.Parameters.Add(new SQLiteParameter(@"TIME", DbType.String) { Value = time });
 
@@ -165,9 +182,13 @@ VALUES
 
                 using(SQLiteCommand command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = @"SELECT TIME FROM TimeRecord";
+                    #region SQL 쿼리를 실행합니다.
 
-					SQLiteDataReader reader = command.ExecuteReader();
+                    command.CommandText = "SELECT TIME FROM TimeRecord";
+
+                    #endregion
+
+                    SQLiteDataReader reader = command.ExecuteReader();
 
                     List<TimeModel> list = new List<TimeModel>();
 
@@ -186,8 +207,5 @@ VALUES
         }
 
         #endregion
-
-
-
     }
 }

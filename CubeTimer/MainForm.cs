@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace CubeTimer
@@ -31,7 +29,7 @@ namespace CubeTimer
 
         #endregion
 
-        //Constructor (Public)
+        // Constructor (Public)
 
         #region MainForm() - 생성자 입니다.
 
@@ -53,8 +51,6 @@ namespace CubeTimer
 
             GetDataListBox();
 
-            //SetStatusMode(StatusMode.Idle);
-
             this.cubeTimer.Tick        += cubeTimer_Tick;
             this.KeyDown               += mainForm_KeyDown;
             this.deleteButton.Click    += deleteButton_Click;
@@ -62,6 +58,8 @@ namespace CubeTimer
         }
 
         #endregion
+
+        // Event Method (Private)
 
         #region mainForm_KeyDown(sender, e) - 키 입력시 동작합니다.
 
@@ -90,8 +88,6 @@ namespace CubeTimer
                     TimeModel inputItem = GetItemFromControl();
 
                     QueryHelper.InsertItem(inputItem);
-
-                    // TimeModel newItem = QueryHelper.GetItem(inputItem.Time);
 
                     this.sourceList.Add(inputItem);
 
@@ -142,7 +138,20 @@ namespace CubeTimer
         /// <param name="e">이벤트 인자 입니다.</param>
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            this.recordListBox.Items.Remove(this.recordListBox.SelectedItem);
+            TimeModel focusItem = this.recordListBox.SelectedItem as TimeModel;
+
+            try
+            {
+                QueryHelper.DeleteItem(focusItem.Time);
+
+                this.sourceList.Remove(focusItem);
+
+                SetListBoxControlData(this.sourceList);
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
         }
 
         #endregion
@@ -171,6 +180,8 @@ namespace CubeTimer
         }
 
         #endregion
+
+        // Method (Private)
 
         #region SetStatusMode(statusMode) - 상태 모드를 설정합니다.
 
@@ -240,7 +251,7 @@ namespace CubeTimer
         }
 
         #endregion
-
+         
         #region GetItemFromControl() - 컨트롤에서 항목을 구합니다.
 
         /// <summary>
